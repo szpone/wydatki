@@ -1,0 +1,12 @@
+{
+  "name": "thexpenser",
+  "version": "1.0.0",
+  "description": "expenses!",
+  "repository": "git@github.com:szpone/thexpenser.git",
+  "author": "nikoladamus",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ]
+}
