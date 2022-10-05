@@ -1,0 +1,29 @@
+enum TEST_ID  {
+    DASHBOARD = "dashboard",
+    EXPENSE_TABLE = "expense-table",
+    EXPENSE_EL = "expense-el",
+    SHOW_BTNS = "show-buttons",
+    SHOW_ALL = "show-all",
+    SHOW_USER = "show-by-user",
+    SHOW_CATEGORY = "show-by-category",
+    DELETE_EXPENSE = "delete-expense",
+    ADD_EXPENSE = "add-expense-form",
+    EXPENSE_NAME = "expense-name-form",
+    EXPENSE_AMOUNT = "expense-amount-form",
+    EXPENSE_CATEGORY = "expense-category-form",
+    EXPENSE_USER = "expense-user-form",
+    EXPENSE_SUBMIT = "submit-expense",
+    CATEGORY_NAME = "category-name-form",
+    ADD_CATEGORY = "add-category-form",
+    CATEGORY_SUBMIT = "submit-category-form",
+    EDITABLE_ROW = "editable-row",
+    EDIT_EXPENSE_SUBMIT = "edit-expense-submit",
+    EDIT_EXPENSE_BTN = "edit-extpense-btn",
+    EDIT_EXPENSE_NAME = "edit-expense-name-form",
+    EDIT_EXPENSE_AMOUNT = "edit-expense-amount-form",
+    EDIT_EXPENSE_CATEGORY = "edit-expense-category-form",
+    EDIT_EXPENSE_USER = "edit-expense-user-form",
+    EXPENSE_NAME_ERROR = "expense-name-error"
+};
+
+export default TEST_ID;
