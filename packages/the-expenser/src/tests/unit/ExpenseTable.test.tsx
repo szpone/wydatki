@@ -23,17 +23,21 @@ describe("Main expense table", () => {
     });
     it("Should render expense table", () => {
         render(
-            <ExpenseProvider value={{ expenses: mockedExpenses, categories: mockedCategories, users: mockedUsers}}>
+            <ExpenseProvider value={{ expenses: mockedExpenses, categories: mockedCategories, users: mockedUsers, fetchData: jest.fn()}}>
                 <ExpenseTable />
             </ExpenseProvider>
         );
         expect(screen.getByTestId(TEST_ID.EXPENSE_TABLE)).not.toBeNull();
     });
-    // it("Should elements be in table", async () => {
-    //     jest.spyOn(axios, "get").mockResolvedValueOnce({ data: mockedExpenses });
-    //     render(<ExpenseTable />);
-    //     await waitFor(() => expect(screen.findByTestId(`${TEST_ID.EXPENSE_EL}-1`).then(res => res)).not.toBeNull())
-    // });
+    it("Should elements be in table", async () => {
+        render(
+            <ExpenseProvider value={{ expenses: mockedExpenses, categories: mockedCategories, users: mockedUsers, fetchData: jest.fn()}}>
+
+        <ExpenseTable />
+        </ExpenseProvider>
+        );
+        await waitFor(() => expect(screen.findByTestId(`${TEST_ID.EXPENSE_EL}-1`).then(res => res)).not.toBeNull())
+    });
     // it("Should render show buttons", () => {
     //     render(<ExpenseTable />);
     //     expect(screen.getByTestId(TEST_ID.SHOW_BTNS)).not.toBeNull();
