@@ -1,19 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import TEST_ID from "../tests/unit/testIds";
 import AddExpenseForm from "./forms/AddExpenseForm";
 import ShowButtons from "./ShowButtons";
 import useExpenseTable from "./useExpenseTable";
 import AddCategoryForm from "./forms/AddCategoryForm";
 import EditableRow from "./forms/EditableRow";
+import { ExpenseContext } from "../contexts/expense-context";
 
 const ExpenseTable = () => {
     const { 
-        expenses,
         setShowMode,
-        showMode,
+        // showMode,
         onExpenseDelete,
-        categories,
-        users,
         handleSubmit,
         handleCategorySubmit,
         handleEditExpense,
@@ -21,13 +19,20 @@ const ExpenseTable = () => {
         editedExpense
     } = useExpenseTable();
 
+    const { categories, expenses, users } = useContext(ExpenseContext);
+
+    console.log(categories, "categories")
+
+
+
+
     return (
         <div data-testid={TEST_ID.EXPENSE_TABLE}>
             <ShowButtons setShowMode={setShowMode} />
             <div>
             {expenses && expenses.map((item: Record<string, any>) => 
             <div key={item.id} data-testid={`${TEST_ID.EXPENSE_EL}-${item.id}`}> 
-            {editedExpense === item.id ? <EditableRow categories={categories} users={users} name={item.name} userId={item.user.id} categoryId={item.category.id} handleSubmit={handleEditExpense} amount={item.amount} expenseId={item.id} /> : <div>{item.user.name}</div>} 
+            {editedExpense === item.id ? <EditableRow categories={[]} users={users} name={item.name} userId={item.user.id} categoryId={item.category.id} handleSubmit={handleEditExpense} amount={item.amount} expenseId={item.id} /> : <div>{item.user.name}</div>} 
             <button data-testid={`${TEST_ID.DELETE_EXPENSE}-${item.id}`} onClick={()=> onExpenseDelete(item.id)}>
                  DELETE 
                  </button>

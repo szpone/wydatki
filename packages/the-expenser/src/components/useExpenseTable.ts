@@ -12,17 +12,17 @@ const useExpenseTable = () => {
 
     const [showMode, setShowMode] = useState<MODES>(MODES.All);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const expense = await fetchExpenses();
-            const category = await fetchCategories();
-            const user = await fetchUsers();
-            setExpenses(expense);
-            setCategories(category);
-            setUsers(user);
-        }
-        fetchData() 
-    }, []);
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         const expense = await fetchExpenses();
+    //         // const category = await fetchCategories();
+    //         const user = await fetchUsers();
+    //         setExpenses(expense);
+    //         // setCategories(category);
+    //         setUsers(user);
+    //     }
+    //     fetchData() 
+    // }, []);
 
     const handleSubmit = (data: any) => {
         const postData = {
@@ -73,7 +73,7 @@ const useExpenseTable = () => {
         showMode,
         setShowMode,
         onExpenseDelete, 
-        categories,
+        // categories,
         users,
         handleSubmit,
         handleCategorySubmit,
