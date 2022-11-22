@@ -23,7 +23,11 @@ enum TEST_ID  {
     EDIT_EXPENSE_AMOUNT = "edit-expense-amount-form",
     EDIT_EXPENSE_CATEGORY = "edit-expense-category-form",
     EDIT_EXPENSE_USER = "edit-expense-user-form",
-    EXPENSE_NAME_ERROR = "expense-name-error"
+    EXPENSE_NAME_ERROR = "expense-name-error",
+    LAST_EXPENSE_TILE = "last-expense-tile",
+    SUMMARY = "summary",
+    WEEKLY_AMOUNT = "weekly-amount",
+    CANCEL_BUTTON = "cancel-button"
 };
 
 export default TEST_ID;

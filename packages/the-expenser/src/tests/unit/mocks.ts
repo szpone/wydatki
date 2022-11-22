@@ -21,6 +21,11 @@ export const mockedUsers = [
     }
 ];
 
+export const mockedLastExpense = {
+    amount: 1234,
+    name: "test expense",
+    user: { name: "Test user" }
+}
 export const mockedExpenses = [
     {
         id: 1,
@@ -30,6 +35,14 @@ export const mockedExpenses = [
         name: "food",
         categoryId: 1,
         userId: 1,
+        user: {
+            id: 1,
+            name: "Test User 1"
+        },
+        category: {
+            id: 1,
+            name: "Test category"
+        }
     },
     {
         id: 2,
@@ -39,5 +52,13 @@ export const mockedExpenses = [
         name: "animals",
         categoryId: 2,
         userId: 1,
+        user: {
+            id: 2,
+            name: "Test User 2"
+        },
+        category: {
+            id: 2,
+            name: "Test category 2"
+        }
     }
 ];

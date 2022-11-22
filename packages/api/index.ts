@@ -14,7 +14,19 @@ app.use(express.json())
 
 
 app.get("/api/expenses", async (req: any, res: any) => {
-  const expenses = await prisma.expense.findMany({ include: { user: true, category: true } });
+  const orderBy = req.query.order_by;
+  const limit = req.query.limit;
+  const expenses = await prisma.expense.findMany(
+    { 
+      take: limit ? +limit : undefined,
+      orderBy: [
+        {
+          createdAt: orderBy ? orderBy : "desc"
+        }
+
+      ],
+      include: { user: true, category: true } 
+    });
   res.json({
     success: true,
     payload: expenses,
@@ -30,6 +42,7 @@ app.get("/api/categories", async (req: any, res: any) => {
     message: "Getting categories successful"
   });
 });
+
 
 app.get("/api/users", async (req: any, res: any) => {
   const users = await prisma.user.findMany();
@@ -62,8 +75,12 @@ app.post(`/api/expense`, async (req: any, res: any) => {
           amount,
           category: {
             connect: { id: Number(category)}
-          }
+          },
       },
+      include: {
+        user: true,
+        category: true
+      }
   })
   res.json({
       success: true,
@@ -131,6 +148,6 @@ app.get('/', (request: any, response: any) => {
     response.json({ info: 'Node.js, Express, and Postgres API' })
   })
 
-app.listen(port, () => {
+app.listen(port, 'localhost', () => {
     console.log(`App running on port ${port}.`)
   })
